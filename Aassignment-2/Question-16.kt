@@ -1,0 +1,20 @@
+class Window {
+    var width = 0
+    var height = 0
+}
+
+fun main() {
+    val window = Window().apply {
+        width = 1920
+        height = 1080
+    }
+
+    println("Width: ${window.width}")
+    println("Height: ${window.height}")
+}
+
+
+Output :
+
+Width: 1920
+Height: 1080
