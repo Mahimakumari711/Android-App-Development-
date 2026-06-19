@@ -1,0 +1,6 @@
+package com.example.shoppingapp.data
+
+data class CartItem(
+    val product: Product,
+    var quantity: Int = 1
+)
