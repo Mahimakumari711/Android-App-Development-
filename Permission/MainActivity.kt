@@ -38,7 +38,6 @@ fun AudioRecorderScreen() {
     var recorder by remember { mutableStateOf<MediaRecorder?>(null) }
     var audioFile by remember { mutableStateOf<File?>(null) }
 
-    // 🎯 MICROPHONE PERMISSION POPUP
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
@@ -62,12 +61,10 @@ fun AudioRecorderScreen() {
 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-            // 🎤 START RECORDING BUTTON
             Button(onClick = {
 
                 val permission = Manifest.permission.RECORD_AUDIO
 
-                // 👉 THIS FORCES POPUP WHEN NOT GRANTED
                 if (ContextCompat.checkSelfPermission(context, permission)
                     == PackageManager.PERMISSION_GRANTED
                 ) {
@@ -87,7 +84,6 @@ fun AudioRecorderScreen() {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // ⏹ STOP BUTTON
             Button(
                 onClick = {
                     stopRecording(recorder)
